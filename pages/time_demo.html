@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>DOM!!!</title>
+        <style>
+            *[madeby="angel"] { color: red; }
+        </style>
+    </head>
+    <body>
+        <h1 id="one" madeby="angel">
+            Welcome 
+            <span id="name">Shem</span>
+        </h1>
+        <input type="time" id="input_hours" placeholder="enter time hours">
+        <input type="button" id="btnClick" value="Click Me!!" />
+        <br><br>
+        <span id="hour_desc"></span>
+        <span id="age_desc"></span>
+        
+        <script>
+            $('#btnClick').on('click', function(){
+                
+            });
+
+            // Client-side programming VS server-side programming
+            document.getElementById('btnClick').addEventListener('click', function(){
+
+                // FOR TIME & AGE
+                var time = document.getElementById('input_hours').value;
+                if(time == ''){
+                    alert('invalid input');
+                }
+                else{
+                    var time_array = time.split(':');
+
+                    // For time
+                    if(time_array[0] < 12){
+                        document.getElementById('hour_desc').innerHTML = "Good Morning!!! " + time + ' AM';
+                    }
+                    else {
+                        document.getElementById('hour_desc').innerHTML = "Good Afternoon!!! " + (time_array[0] - 12) + ':' + time_array[1] + ' PM';
+                    }
+
+                    // For age
+                    if(time_array[1] >= 18){
+                        document.getElementById('age_desc').innerHTML = "<br> You are an adult";
+                        document.getElementById('age_desc').style.color = 'green';
+                        $('#age_desc').css('color','green');
+                    }
+                    else {
+                        document.getElementById('age_desc').innerHTML = "<br> You are NOT an adult";
+                        document.getElementById('age_desc').style.color = 'red';
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
